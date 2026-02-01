@@ -1,0 +1,14 @@
+2025-11-17 17:27:46,271 - INFO - User started the program
+2025-11-17 17:27:49,985 - INFO - Liam
+2025-11-17 17:27:49,985 - INFO - User entered name: 'Liam'
+2025-11-17 17:27:52,673 - INFO - User entered age: '42'
+2025-11-17 17:27:52,674 - INFO - Program finished successfully
+2025-11-17 17:28:13,598 - INFO - User started the program
+2025-11-17 17:28:18,605 - INFO - Jim
+2025-11-17 17:28:18,605 - INFO - User entered name: 'Jim'
+2025-11-17 17:28:20,505 - ERROR - WARNING: Age value is negative: -3
+2025-11-17 17:28:20,505 - INFO - Program finished successfully
+2025-11-17 17:28:35,381 - INFO - User started the program
+2025-11-17 17:28:43,115 - INFO - Lilly
+2025-11-17 17:28:43,116 - INFO - User entered name: 'Lilly'
+2025-11-17 17:28:46,378 - ERROR - Invalid age input

@@ -1,0 +1,75 @@
+import turtle
+
+turt = turtle.Turtle()
+#set initial
+turt.teleport(-100,-100)
+
+#square 1
+turt.fillcolor("red")
+turt.begin_fill()
+turt.forward(200)
+turt.right(90)
+turt.forward(100)
+turt.right(90)
+turt.forward(200)
+turt.right(90)
+turt.forward(100)
+turt.end_fill()
+
+#square 2
+turt.teleport(-100, -250)
+turt.setheading(0)
+turt.fillcolor("red")
+turt.begin_fill()
+turt.forward(200)
+turt.right(90)
+turt.forward(50)
+turt.right(90)
+turt.forward(200)
+turt.right(90)
+turt.forward(50)
+turt.end_fill()
+
+#square 3
+turt.teleport(-100, -300)
+turt.setheading(0)
+turt.fillcolor("blue")
+turt.begin_fill()
+turt.forward(50)
+turt.right(90)
+turt.forward(100)
+turt.right(90)
+turt.forward(50)
+turt.right(90)
+turt.forward(100)
+turt.end_fill()
+
+#square 4
+turt.teleport(50, -300)
+turt.setheading(0)
+turt.fillcolor("blue")
+turt.begin_fill()
+turt.forward(50)
+turt.right(90)
+turt.forward(100)
+turt.right(90)
+turt.forward(50)
+turt.right(90)
+turt.forward(100)
+turt.end_fill()
+
+#square 3
+turt.teleport(-25, -200)
+turt.setheading(0)
+turt.fillcolor("blue")
+turt.begin_fill()
+turt.forward(50)
+turt.right(90)
+turt.forward(50)
+turt.right(90)
+turt.forward(50)
+turt.right(90)
+turt.forward(50)
+turt.end_fill()
+
+turt.screen.mainloop()
