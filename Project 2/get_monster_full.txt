@@ -1,0 +1,24 @@
+CREATE OR REPLACE FUNCTION public.get_monster_full(p_monster_id integer)
+RETURNS jsonb
+LANGUAGE sql
+STABLE
+AS $$
+  SELECT jsonb_build_object(
+    'monster', to_jsonb(m) - 'id',
+    'id', m.id,
+    'tags', COALESCE((SELECT jsonb_agg(tag ORDER BY tag) FROM public.monster_tags WHERE monster_id = m.id), '[]'::jsonb),
+    'skills', COALESCE((SELECT jsonb_agg(to_jsonb(ms) - 'id' ORDER BY ms.id) FROM public.monster_skills ms WHERE ms.monster_id = m.id), '[]'::jsonb),
+    'abilities', COALESCE((SELECT jsonb_agg(to_jsonb(ma) - 'id' ORDER BY ma.id) FROM public.monster_abilities ma WHERE ma.monster_id = m.id), '[]'::jsonb),
+    'spellcasting', COALESCE((
+      SELECT jsonb_agg(spc_item ORDER BY spc_item->>'id') FROM (
+        SELECT to_jsonb(spc) - 'id' || jsonb_build_object('spells', COALESCE((
+          SELECT jsonb_agg(to_jsonb(sl) - 'id' ORDER BY sl.id) FROM public.spell_list sl WHERE sl.spellcasting_id = spc.id
+        ), '[]'::jsonb)) AS spc_item
+        FROM public.monster_spellcasting spc
+        WHERE spc.monster_id = m.id
+      ) t
+    ), '[]'::jsonb)
+  )
+  FROM public.monsters m
+  WHERE m.id = p_monster_id;
+$$;
